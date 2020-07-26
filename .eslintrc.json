@@ -1,0 +1,8 @@
+{
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    }
+}
