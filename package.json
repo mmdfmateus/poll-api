@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/mmdfmateus/poll-api/issues"
   },
-  "homepage": "https://github.com/mmdfmateus/poll-api#readme"
+  "homepage": "https://github.com/mmdfmateus/poll-api#readme",
+  "devDependencies": {
+    "@types/node": "^14.0.26",
+    "typescript": "^3.9.7"
+  }
 }
