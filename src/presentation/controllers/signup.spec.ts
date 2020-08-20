@@ -8,18 +8,22 @@ interface SutTypes {
 }
 
 const makeSut = (): SutTypes => {
+  const emailValidatorStub = makeEmailValidatorStub();
+  const sut = new SignUpController(emailValidatorStub);
+  return {
+    sut,
+    emailValidatorStub
+  };
+}
+
+const makeEmailValidatorStub = (): EmailValidator => {
   class EmailValidatorStub implements EmailValidator {
     isValid(email: String): boolean {
       return true;
     }
   }
 
-  const emailValidatorStub = new EmailValidatorStub();
-  const sut = new SignUpController(emailValidatorStub);
-  return {
-    sut,
-    emailValidatorStub
-  };
+  return new EmailValidatorStub();
 }
 
 const makeErrorEmailValidatorStub = (): EmailValidator => {
