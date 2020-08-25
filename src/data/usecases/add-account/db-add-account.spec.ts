@@ -1,6 +1,7 @@
 import { DbAddAccount } from "./db-add-account";
+import { Encrypter } from "../../protocols/encrypter";
 
-class EncrypterStub {
+class EncrypterStub implements Encrypter{
   async encrypt(value: string): Promise<string> {
     return new Promise(resolve => resolve('hashed_value'));
   }
