@@ -1,6 +1,6 @@
 export interface AccountModel {
-  _id: String,
-  name: String,
-  email: String,
-  password: String
+  _id: string,
+  name: string,
+  email: string,
+  password: string
 }
