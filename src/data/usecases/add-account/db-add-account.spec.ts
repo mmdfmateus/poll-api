@@ -17,7 +17,7 @@ const makeAddAccountRepository = (): AddAccountRepository => {
   class AddAccountRepositoryStub implements AddAccountRepository {
     async add(account: AddAccountModel): Promise<AccountModel> {
       const fakeAccount = {
-        _id: 'valid_id',
+        id: 'valid_id',
         name: 'valid name',
         email: 'valid_email@mail.com',
         password: 'hashed_value'
