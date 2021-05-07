@@ -2,6 +2,12 @@ import { Collection } from "mongodb";
 import { MongoHelper } from "../helpers/mongo-helper";
 import { LogMongoRepository } from "./log";
 
+const makeSut = () => {
+    const sut = new LogMongoRepository();
+
+    return sut;
+}
+
 describe('Log Mongo Repository', async () => {
     let errorCollection: Collection;
 
@@ -19,7 +25,7 @@ describe('Log Mongo Repository', async () => {
     });
 
     test('Should add log on collection on success', async () => {
-        const sut = new LogMongoRepository();
+        const sut = makeSut();
 
         await sut.logError('error stack');
 
