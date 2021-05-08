@@ -104,6 +104,15 @@ describe('Login Controller', async () => {
         expect(authSpy).toBeCalledWith(makeRequest().body.email, makeRequest().body.password);
     });
 
+    test('Should return 500 if Authentication throws', async () => {
+        const { sut, authenticationStub } = makeSut();
+        jest.spyOn(authenticationStub, 'auth').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())));
+
+        const response = await sut.handle(makeRequest());
+
+        expect(response).toEqual(internalServerError(new Error()));
+    });
+
     test('Should return 401 if invalid credentials are provided', async () => {
         const { sut, authenticationStub } = makeSut();
         jest.spyOn(authenticationStub, 'auth').mockReturnValueOnce(new Promise(resolve => resolve(null)));
